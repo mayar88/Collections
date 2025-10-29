@@ -1,8 +1,9 @@
 from app.models.user_model import User
 from app.database import users_collection
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends,HTTPException
+from app.controllers import auth_controller
 
-router = APIRouter(prefix="/users",tags=["Users"])
+router = APIRouter(prefix="/users",tags=["Users"], dependencies=[Depends(auth_controller.verify_token)])
 
 
 @router.post("/")

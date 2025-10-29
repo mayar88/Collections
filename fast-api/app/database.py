@@ -2,6 +2,8 @@
 import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
+import os
+
 
 load_dotenv()
 
@@ -14,3 +16,5 @@ db = client[DB_NAME]
 users_collection = db["users"]
 instructors_collection = db["instructors"]
 sessions_collection = db["sessions"]
+
+
